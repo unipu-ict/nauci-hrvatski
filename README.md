@@ -6,7 +6,6 @@ Aplikacija namijenjena turistima i učenju osnovnih fraza hrvatskog jezika.
 - **Perković	Tedi**	(tperkovic@unipu.hr)
 - **Pićan	Lea**	      (lpican@unipu.hr)
 
-
 ### Organizacija
 Sveučilište Jurja Dobrile u Puli  
 Odjel za informacijsko-komunikacijske tehnologije  
