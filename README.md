@@ -1,5 +1,5 @@
 # nauci-hrvatski
-Aplikacija namijenjena turistima i učenju osnovnih fraza hrvatskog jezika.
+Mobilna aplikacija namijenjena turistima i učenju osnovnih fraza hrvatskog jezika.
 
 ### Autori
 - **Duda	Alen**	    (aduda@unipu.hr)
