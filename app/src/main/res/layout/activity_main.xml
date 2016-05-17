@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,10 +7,86 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="hr.unipu.polyling.MainActivity">
+    tools:context="hr.unipu.polyling.MainActivity"
+    android:columnCount="4"
+
+    >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:layout_columnSpan="4"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="Fraze po kategorijama:"
+        android:layout_marginBottom="10dp"
+        />
+    <!--
+    Kategorije pročitati iz baze pa ovako poslagati ili hardcodirati?
+    Zamijeniti gridlayout s gridview?
+    Koristiti slike i tekst za nazive kategorija?
+    Omotati sve u scrollView ako bude puno kategorija?
+
+
+    -->
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Brojevi" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Dani" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Mjeseci" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Vrijeme" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Restorani" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Ulica" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Crkva" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="Sport" />
+
+
+
+
+</GridLayout>
