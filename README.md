@@ -1,6 +1,11 @@
 # nauci-hrvatski
 Mobilna aplikacija namijenjena turistima i učenju osnovnih fraza hrvatskog jezika.
 
+Kodno ime - **PolyLing**
+
+
+![PolyLing logo](https://raw.githubusercontent.com/unipu-ict/nauci-hrvatski/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+
 ### Autori
 - **Duda	Alen**	    (aduda@unipu.hr)
 - **Perković	Tedi**	(tperkovic@unipu.hr)
