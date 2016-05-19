@@ -1,22 +1,21 @@
 package hr.unipu.polyling;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-public class MainActivity extends AppCompatActivity {
+public class KategorijeActivity extends AppCompatActivity {
 
     private Kategorija[] kategorije = new Kategorija[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_kategorije);
 
         //test podaci
         for(int i=0;i<kategorije.length;i++) {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, FrazeListActivity.class);
+                Intent intent = new Intent(KategorijeActivity.this, FrazeListActivity.class);
                 intent.putExtra("frazaID", id);
                 startActivity(intent);
             }

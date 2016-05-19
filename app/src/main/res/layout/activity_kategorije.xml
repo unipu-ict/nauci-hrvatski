@@ -3,28 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="hr.unipu.polyling.MainActivity"
-    android:orientation="vertical"
+    tools:context=".KategorijeActivity"
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="Fraze po kategorijama:"
         android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Fraze po kategorijama:"
+        android:textSize="30sp"
         />
 
 
         <GridView
+            android:id="@+id/kategorijeGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/kategorijeGrid"
 
             android:choiceMode="singleChoice"
             android:numColumns="auto_fit"
