@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class KategorijeActivity extends AppCompatActivity {
 
-    private Kategorija[] kategorije = new Kategorija[10];
+    private List<Kategorija> kategorije = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +20,14 @@ public class KategorijeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_kategorije);
 
         //test podaci
-        for(int i=0;i<kategorije.length;i++) {
-            kategorije[i] = new Kategorija(i, "Category "+(i+1), "Kategorija "+(i+1));
-        }
+        kategorije.add(new Kategorija(0, "Test", "Proba", "mis"));
+        kategorije.add(new Kategorija(1, "Animals", "Proba", "mis"));
+        kategorije.add(new Kategorija(2, "Food", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "Cars", "Proba", "mis"));
 
 
         GridView grid = (GridView) findViewById(R.id.kategorijeGrid);
-        grid.setAdapter(new ArrayAdapter<Kategorija>(this, android.R.layout.simple_list_item_1, kategorije));
+        grid.setAdapter(new KategorijaArrayAdapter(this, 0, kategorije));
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -36,4 +39,5 @@ public class KategorijeActivity extends AppCompatActivity {
         });
 
     }
+
 }

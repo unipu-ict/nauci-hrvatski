@@ -6,14 +6,18 @@ public class Kategorija {
     int id;
     String naziv_en;
     String naziv_hr;
+    String slika;
+
 
     public Kategorija() {
     }
 
-    public Kategorija(int id, String naziv_en, String naziv_hr) {
+
+    public Kategorija(int id, String naziv_en, String naziv_hr, String slika) {
         this.id = id;
         this.naziv_en = naziv_en;
         this.naziv_hr = naziv_hr;
+        this.slika = slika;
     }
 
     public int getId() {
@@ -38,6 +42,14 @@ public class Kategorija {
 
     public void setNaziv_hr(String naziv_hr) {
         this.naziv_hr = naziv_hr;
+    }
+
+    public String getSlika() {
+        return slika;
+    }
+
+    public void setSlika(String slika) {
+        this.slika = slika;
     }
 
     @Override
