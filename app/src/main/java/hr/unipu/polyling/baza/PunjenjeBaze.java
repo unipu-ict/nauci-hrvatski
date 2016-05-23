@@ -13,6 +13,10 @@ public class PunjenjeBaze {
         baza.dodajKategoriju("Food", "Hrana", "mis");
         baza.dodajKategoriju("Cars", "Automobili", "mis");
         baza.dodajKategoriju("Money", "Novac", "mis");
-        baza.dodajKategoriju("United States of America", "Sjedinjene Američke Države", "mis");
+        baza.dodajKategoriju("Household", "Domaćinstvo", "mis");
+    }
+
+    public static void puniFraze(Baza baza) {
+        //TODO: implementirati po uzoru na puniKategorije
     }
 }
