@@ -11,7 +11,7 @@
         android:id="@+id/slikaKategorije"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:contentDescription="Category image"
+        android:contentDescription="@string/app_name"
         />
 
     <TextView
@@ -23,5 +23,11 @@
         <!--android:ellipsize="end"-->
         <!--android:lines="2"-->
 
+    <TextView
+        android:id="@+id/nazivKategorijeHr"
+        android:textSize="17sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
 
 </LinearLayout>

@@ -8,11 +8,11 @@ public class PunjenjeBaze {
         //prvo isprazniti tablicu ako postoje kategorije (korisno zbog refreshanja)
         baza.obrisiKategorije();
 
-        baza.dodajKategoriju("Drinks", "Proba", "mis");
-        baza.dodajKategoriju("Animals", "Proba", "mis");
-        baza.dodajKategoriju("Food", "Proba", "mis");
-        baza.dodajKategoriju("Cars", "Proba", "mis");
-        baza.dodajKategoriju("Money", "Proba", "mis");
-        baza.dodajKategoriju("United States of America", "Proba", "mis");
+        baza.dodajKategoriju("Drinks", "Pića", "mis");
+        baza.dodajKategoriju("Animals", "Životinje", "mis");
+        baza.dodajKategoriju("Food", "Hrana", "mis");
+        baza.dodajKategoriju("Cars", "Automobili", "mis");
+        baza.dodajKategoriju("Money", "Novac", "mis");
+        baza.dodajKategoriju("United States of America", "Sjedinjene Američke Države", "mis");
     }
 }

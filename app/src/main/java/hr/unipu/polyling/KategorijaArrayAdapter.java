@@ -35,12 +35,18 @@ class KategorijaArrayAdapter extends ArrayAdapter<Kategorija> {
 
         View view = inflater.inflate(R.layout.kategorija_item, null);//bira custom izgled list itema
 
-        TextView text = (TextView) view.findViewById(R.id.nazivKategorije);
-        text.setText(kategorija.getNaziv_en());//postavljanje teksta koji će se prikazati
 
         ImageView slika = (ImageView) view.findViewById(R.id.slikaKategorije);
-        int res = context.getResources().getIdentifier(kategorija.getSlika(), "drawable", context.getPackageName());//pronalazak slike po imenu u folderu drawable
+        //pronalazak slike po imenu u folderu drawable
+        int res = context.getResources().getIdentifier(kategorija.getSlika(), "drawable", context.getPackageName());
         slika.setImageResource(res);
+
+        //postavljanje teksta koji će se prikazati ispod slike kategorije
+        TextView nazivEn = (TextView) view.findViewById(R.id.nazivKategorije);
+        nazivEn.setText(kategorija.getNaziv_en());
+
+        TextView nazivHr = (TextView) view.findViewById(R.id.nazivKategorijeHr);
+        nazivHr.setText(kategorija.getNaziv_hr());
 
 
         return view;
