@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PolyLing</string>
+    <string name="category_list_caption">Kategorije:</string>
+    <string name="phrase_list_caption">Fraze iz kategorije %1$s:</string>
+</resources>

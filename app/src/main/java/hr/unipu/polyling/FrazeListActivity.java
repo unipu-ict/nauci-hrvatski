@@ -23,7 +23,8 @@ public class FrazeListActivity extends AppCompatActivity {
         Log.d("POLYLING", "kategorijaID: "+kategorijaID);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
         Log.d("POLYLING", "imeKategorije: "+imeKategorije);
-        naslov.setText("Fraze iz kategorije " +imeKategorije);
+        String caption = String.format(getResources().getString(R.string.phrase_list_caption), imeKategorije);
+        naslov.setText(caption);
 
     }
 

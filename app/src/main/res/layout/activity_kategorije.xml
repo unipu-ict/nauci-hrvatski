@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="Fraze po kategorijama:"
+        android:text="@string/category_list_caption"
         android:textSize="30sp"
         />
 

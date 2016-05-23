@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PolyLing</string>
+    <string name="category_list_caption">Categories:</string>
+    <string name="phrase_list_caption">%1$s phrases:</string>
 </resources>
