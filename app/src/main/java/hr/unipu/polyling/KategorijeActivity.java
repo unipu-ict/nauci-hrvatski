@@ -7,13 +7,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import hr.unipu.polyling.baza.Baza;
+import hr.unipu.polyling.baza.PunjenjeBaze;
+import hr.unipu.polyling.model.Kategorija;
 
 public class KategorijeActivity extends AppCompatActivity {
 
     Baza baza;
-    private List<Kategorija> kategorije;// = new ArrayList<>();
+    private List<Kategorija> kategorije;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,27 +25,11 @@ public class KategorijeActivity extends AppCompatActivity {
 
         //instanciranje baze
         baza = new Baza(this);
-
+        //čitanje svih kategorija u bazu i spremanje u listu
         kategorije = baza.sveKategorije();
         if(kategorije.size()==0) {
-            //test podaci
-//            kategorije.add(new Kategorija(0, "Test", "Proba", "mis"));
-//            kategorije.add(new Kategorija(1, "Animals", "Proba", "mis"));
-//            kategorije.add(new Kategorija(2, "Food", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "Cars", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "Money", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "Political Activism", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "Otorinolaringology", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "United States of America", "Proba", "mis"));
-//            kategorije.add(new Kategorija(3, "A very long name of a category baby", "Proba", "mis"));
-//TODO: odvojiti podatke nakon testiranja
-            baza.dodajKategoriju("Drinks", "Proba", "mis");
-            baza.dodajKategoriju("Animals", "Proba", "mis");
-            baza.dodajKategoriju("Food", "Proba", "mis");
-            baza.dodajKategoriju("Cars", "Proba", "mis");
-            baza.dodajKategoriju("Money", "Proba", "mis");
-            baza.dodajKategoriju("United States of America", "Proba", "mis");
-
+            //ukoliko nije pronađena ni jedna kategorija, treba napuniti bazu kategorijama
+            PunjenjeBaze.puniKategorije(baza);
             kategorije = baza.sveKategorije();
 
         }

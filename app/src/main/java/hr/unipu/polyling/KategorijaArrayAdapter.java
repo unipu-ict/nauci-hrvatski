@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import hr.unipu.polyling.model.Kategorija;
+
 // custom array adapter za podatke tipa kategorija
 class KategorijaArrayAdapter extends ArrayAdapter<Kategorija> {
 

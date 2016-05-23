@@ -1,4 +1,4 @@
-package hr.unipu.polyling;
+package hr.unipu.polyling.model;
 
 
 

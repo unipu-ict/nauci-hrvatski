@@ -1,4 +1,4 @@
-package hr.unipu.polyling;
+package hr.unipu.polyling.baza;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import hr.unipu.polyling.model.Kategorija;
 
 public class Baza {
 
@@ -86,5 +88,11 @@ public class Baza {
 
     }
 
+    public void obrisiKategorije() {
+        //ne postoji TRUNCATE u sqlite
+        String sql = "DELETE FROM " + BazaOpenHelper.TABLE_KATEGORIJE;
+        database.execSQL(sql);
+        database.execSQL("VACUUM");//resetiranje baze
 
+    }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import hr.unipu.polyling.baza.Baza;
+
 public class FrazeListActivity extends AppCompatActivity {
 
     Baza baza;

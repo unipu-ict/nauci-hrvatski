@@ -1,4 +1,4 @@
-package hr.unipu.polyling;
+package hr.unipu.polyling.baza;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,7 +41,6 @@ public class BazaOpenHelper extends SQLiteOpenHelper {
                     FRAZE_KATEGORIJA_ID + " INTEGER " +
                     ")";
 
-    //TODO: SQL za punjenje tablica kategorijama i frazama se isto treba pozivati nakon stvaranja tablica
 
     public BazaOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
