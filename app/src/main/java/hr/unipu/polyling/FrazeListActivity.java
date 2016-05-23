@@ -2,19 +2,38 @@ package hr.unipu.polyling;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class FrazeListActivity extends AppCompatActivity {
+
+    Baza baza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fraze_list);
 
-        TextView naslov = (TextView) findViewById(R.id.frazeNaslov);
-        long frazaID = getIntent().getLongExtra("frazaID", 0);
-        //promijeniti tako da doda naziv kategorije s tim ID-om iz baze
-        naslov.setText("Fraze iz kategorije " +(frazaID+1));
+        baza = new Baza(this);
 
+        TextView naslov = (TextView) findViewById(R.id.frazeNaslov);
+        int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
+        Log.d("POLYLING", "kategorijaID: "+kategorijaID);
+        String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
+        Log.d("POLYLING", "imeKategorije: "+imeKategorije);
+        naslov.setText("Fraze iz kategorije " +imeKategorije);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        baza.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        baza.close();
     }
 }

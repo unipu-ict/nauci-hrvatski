@@ -24,8 +24,7 @@
         <GridView
             android:id="@+id/kategorijeGrid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
+            android:layout_height="match_parent"
             android:choiceMode="singleChoice"
             android:numColumns="auto_fit"
             android:textAlignment="center">

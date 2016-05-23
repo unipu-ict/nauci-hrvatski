@@ -12,25 +12,40 @@ import java.util.List;
 
 public class KategorijeActivity extends AppCompatActivity {
 
-    private List<Kategorija> kategorije = new ArrayList<>();
+    Baza baza;
+    private List<Kategorija> kategorije;// = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategorije);
 
-        //test podaci
-        kategorije.add(new Kategorija(0, "Test", "Proba", "mis"));
-        kategorije.add(new Kategorija(1, "Animals", "Proba", "mis"));
-        kategorije.add(new Kategorija(2, "Food", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "Cars", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "Money", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "Political Activism", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "Otorinolaringology", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "United States of America", "Proba", "mis"));
-        kategorije.add(new Kategorija(3, "A very long name of a category baby", "Proba", "mis"));
+        //instanciranje baze
+        baza = new Baza(this);
 
+        kategorije = baza.sveKategorije();
+        if(kategorije.size()==0) {
+            //test podaci
+//            kategorije.add(new Kategorija(0, "Test", "Proba", "mis"));
+//            kategorije.add(new Kategorija(1, "Animals", "Proba", "mis"));
+//            kategorije.add(new Kategorija(2, "Food", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "Cars", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "Money", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "Political Activism", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "Otorinolaringology", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "United States of America", "Proba", "mis"));
+//            kategorije.add(new Kategorija(3, "A very long name of a category baby", "Proba", "mis"));
+//TODO: odvojiti podatke nakon testiranja
+            baza.dodajKategoriju("Drinks", "Proba", "mis");
+            baza.dodajKategoriju("Animals", "Proba", "mis");
+            baza.dodajKategoriju("Food", "Proba", "mis");
+            baza.dodajKategoriju("Cars", "Proba", "mis");
+            baza.dodajKategoriju("Money", "Proba", "mis");
+            baza.dodajKategoriju("United States of America", "Proba", "mis");
 
+            kategorije = baza.sveKategorije();
+
+        }
         GridView grid = (GridView) findViewById(R.id.kategorijeGrid);
         assert grid != null;
         //postavljanje custom adaptera za grid view
@@ -40,11 +55,24 @@ public class KategorijeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(KategorijeActivity.this, FrazeListActivity.class);
-                intent.putExtra("frazaID", id);
+                //pronalazi koja je kategorija dodirnuta i pokreće novu aktivnost koja prikazuje fraze te kategorije
+                int kategorijaID = kategorije.get(position).getId();
+                intent.putExtra("kategorijaID", kategorijaID);
                 startActivity(intent);
             }
         });
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        baza.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        baza.close();
+    }
 }

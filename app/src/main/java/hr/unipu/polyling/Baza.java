@@ -1,64 +1,90 @@
 package hr.unipu.polyling;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Baza extends SQLiteOpenHelper {
+public class Baza {
 
+    SQLiteOpenHelper dbhelper;
+    SQLiteDatabase database;
     private static final String LOGTAG = "POLYLING";
-    private static final String DATABASE_NAME = "polyling.db";
-    private static final int DATABASE_VERSION = 1;
-
-    public static final String TABLE_KATEGORIJE = "kategorije";
-    public static final String KATEGORIJE_ID = "ID";
-    public static final String KATEGORIJE_NAZIV_EN = "naziv_en";
-    public static final String KATEGORIJE_NAZIV_HR = "naziv_hr";
-    public static final String KATEGORIJE_IMAGE = "slika";
-
-    public static final String TABLE_FRAZE = "fraze";
-    public static final String FRAZE_ID = "ID";
-    public static final String FRAZE_NAZIV_EN = "naziv_en";
-    public static final String FRAZE_NAZIV_HR = "naziv_hr";
-    public static final String FRAZE_KATEGORIJA_ID = "kategorija_id";
-
-
-    private static final String KATEGORIJE_CREATE =
-            "CREATE TABLE " + TABLE_KATEGORIJE + " (" +
-                    KATEGORIJE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    KATEGORIJE_NAZIV_EN + " TEXT, " +
-                    KATEGORIJE_NAZIV_HR + " TEXT, " +
-                    KATEGORIJE_IMAGE + " TEXT " +
-                    ")";
-
-    private static final String FRAZE_CREATE =
-            "CREATE TABLE " + TABLE_FRAZE + " (" +
-                    FRAZE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    FRAZE_NAZIV_EN + " TEXT, " +
-                    FRAZE_NAZIV_HR + " TEXT, " +
-                    FRAZE_KATEGORIJA_ID + " INTEGER " +
-                    ")";
-
-    //TODO: SQL za punjenje tablica kategorijama i frazama se isto treba pozivati nakon stvaranja tablica
 
     public Baza(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        dbhelper = new BazaOpenHelper(context);
+        open();
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(KATEGORIJE_CREATE);
-        db.execSQL(FRAZE_CREATE);
-        Log.i(LOGTAG, "Struktura tablica stvorena");
+    public void open() {
+        database = dbhelper.getWritableDatabase();
+        Log.d(LOGTAG, "Baza podataka otvorena");
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_KATEGORIJE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRAZE);
-        Log.i(LOGTAG, "Postojece tablice obrisane");
-        onCreate(db);
+    public void close() {
+        dbhelper.close();
+        Log.d(LOGTAG, "Baza podataka zatvorena");
     }
+
+    public List<Kategorija> sveKategorije() {
+        List<Kategorija> kategorije = new ArrayList<Kategorija>();
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE;
+        Cursor cursor = database.rawQuery(sql, null);
+
+        Log.d(LOGTAG, "Kategorija u bazi: " +cursor.getCount());
+        if(cursor.getCount()>0) {
+            while (cursor.moveToNext()) {
+                Kategorija kategorija = new Kategorija();
+                kategorija.setId(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_ID)));
+                kategorija.setNaziv_en(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_NAZIV_EN)));
+                kategorija.setNaziv_hr(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_NAZIV_HR)));
+                kategorija.setSlika(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_IMAGE)));
+                kategorije.add(kategorija);
+            }
+        }
+        cursor.close();
+        return kategorije;
+
+    }
+
+    public Kategorija getKategorijabyID(int id) {
+
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE + " WHERE " + BazaOpenHelper.KATEGORIJE_ID + " = " + id;
+        Cursor cursor = database.rawQuery(sql, null);
+
+        Kategorija kategorija = new Kategorija();
+
+        if (cursor!=null && cursor.moveToFirst()) {
+
+            kategorija.setId(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_ID)));
+            kategorija.setNaziv_en(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_NAZIV_EN)));
+            kategorija.setNaziv_hr(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_NAZIV_HR)));
+            kategorija.setSlika(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_IMAGE)));
+            cursor.close();
+        }
+
+        return kategorija;
+    }
+
+    public void dodajKategoriju(String naziv_en, String naziv_hr, String slika) {
+
+        ContentValues values = new ContentValues();
+        values.put(BazaOpenHelper.KATEGORIJE_NAZIV_EN, naziv_en);
+        values.put(BazaOpenHelper.KATEGORIJE_NAZIV_HR, naziv_hr);
+        values.put(BazaOpenHelper.KATEGORIJE_IMAGE, slika);
+        if(database.insert(BazaOpenHelper.TABLE_KATEGORIJE, null, values) > 0) {
+            Log.d(LOGTAG, "Kategorija uspjesno ubacena u bazu");
+        } else {
+            Log.d(LOGTAG, "Kategorija nije uspjesno ubacena u bazu. ");
+        };
+
+
+    }
+
+
 }
