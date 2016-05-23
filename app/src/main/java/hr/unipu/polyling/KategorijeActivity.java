@@ -24,9 +24,16 @@ public class KategorijeActivity extends AppCompatActivity {
         kategorije.add(new Kategorija(1, "Animals", "Proba", "mis"));
         kategorije.add(new Kategorija(2, "Food", "Proba", "mis"));
         kategorije.add(new Kategorija(3, "Cars", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "Money", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "Political Activism", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "Otorinolaringology", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "United States of America", "Proba", "mis"));
+        kategorije.add(new Kategorija(3, "A very long name of a category baby", "Proba", "mis"));
 
 
         GridView grid = (GridView) findViewById(R.id.kategorijeGrid);
+        assert grid != null;
+        //postavljanje custom adaptera za grid view
         grid.setAdapter(new KategorijaArrayAdapter(this, 0, kategorije));
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
