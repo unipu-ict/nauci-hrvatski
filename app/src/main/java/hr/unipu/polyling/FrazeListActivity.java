@@ -18,13 +18,14 @@ public class FrazeListActivity extends AppCompatActivity {
 
         baza = new Baza(this);
 
-        TextView naslov = (TextView) findViewById(R.id.frazeNaslov);
+//        TextView naslov = (TextView) findViewById(R.id.frazeNaslov);
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
-        Log.d("POLYLING", "kategorijaID: "+kategorijaID);
+//        Log.d("POLYLING", "kategorijaID: "+kategorijaID);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
         Log.d("POLYLING", "imeKategorije: "+imeKategorije);
-        String caption = String.format(getResources().getString(R.string.phrase_list_caption), imeKategorije);
-        naslov.setText(caption);
+//        String caption = String.format(getResources().getString(R.string.phrase_list_caption), imeKategorije);
+//        naslov.setText(caption);
+        getSupportActionBar().setTitle(imeKategorije);
 
     }
 

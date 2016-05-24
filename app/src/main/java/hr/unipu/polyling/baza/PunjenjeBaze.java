@@ -8,12 +8,17 @@ public class PunjenjeBaze {
         //prvo isprazniti tablicu ako postoje kategorije (korisno zbog refreshanja)
         baza.obrisiKategorije();
 
-        baza.dodajKategoriju("Drinks", "Pića", "mis");
-        baza.dodajKategoriju("Animals", "Životinje", "mis");
-        baza.dodajKategoriju("Food", "Hrana", "mis");
-        baza.dodajKategoriju("Cars", "Automobili", "mis");
-        baza.dodajKategoriju("Money", "Novac", "mis");
-        baza.dodajKategoriju("Household", "Domaćinstvo", "mis");
+        baza.dodajKategoriju("Basic", "Osnove", "phrases");
+        baza.dodajKategoriju("Time", "Vrijeme", "time");
+        baza.dodajKategoriju("Weather", "Prognoza", "weather");
+        baza.dodajKategoriju("Directions", "Upute", "directions");
+        baza.dodajKategoriju("Emergency", "SOS", "emergency");
+        baza.dodajKategoriju("Food", "Hrana", "food");
+        baza.dodajKategoriju("Love", "Ljubav", "love");
+        baza.dodajKategoriju("Money", "Novac", "money");
+        baza.dodajKategoriju("Conversations", "Razgovori", "people");
+        baza.dodajKategoriju("Shopping", "Kupovina", "shopping");
+
     }
 
     public static void puniFraze(Baza baza) {
