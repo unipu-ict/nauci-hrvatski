@@ -4,12 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/frazeLayout"
     tools:context="hr.unipu.polyling.FrazeListActivity">
 
 
-    <ListView
-        android:id="@+id/frazeList"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:id="@+id/nazivFraze"
+        android:textSize="48sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nazivFrazeHr"
+        android:textSize="48sp"/>
 </LinearLayout>
