@@ -29,6 +29,7 @@ public class FrazeListActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(imeKategorije);
 
+        fraze = baza.getFrazeByKategorijaId(kategorijaID);
         ListView list = (ListView) findViewById(R.id.frazeList);
         assert list != null;
         list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fraze));

@@ -93,9 +93,9 @@ public class Baza {
         database.execSQL("VACUUM");//resetiranje baze
     }
 
-    public List<Fraza> sveFraze() {
+    public List<Fraza> getFrazeByKategorijaId(int kategorijaId) {
         List<Fraza> fraze = new ArrayList<>();
-        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE;
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId;
         Cursor cursor = database.rawQuery(sql, null);
 
         Log.d(LOGTAG, "Fraza u bazi: " + cursor.getCount());
@@ -135,7 +135,7 @@ public class Baza {
     public int getKategorijaIdByNaziv(String name) {
         int idKategorije = 0;
 
-        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE + " WHERE " + BazaOpenHelper.KATEGORIJE_NAZIV_EN + " = " + name;
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE + " WHERE " + BazaOpenHelper.KATEGORIJE_NAZIV_EN + " = \'" + name + "\'";
         Cursor cursor = database.rawQuery(sql, null);
 
         if (cursor != null && cursor.moveToFirst()) {
