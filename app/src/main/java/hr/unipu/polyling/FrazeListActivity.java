@@ -1,15 +1,20 @@
 package hr.unipu.polyling;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 import hr.unipu.polyling.baza.Baza;
+import hr.unipu.polyling.model.Fraza;
 
 public class FrazeListActivity extends AppCompatActivity {
 
     Baza baza;
+    private List<Fraza> fraze;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +23,15 @@ public class FrazeListActivity extends AppCompatActivity {
 
         baza = new Baza(this);
 
-//        TextView naslov = (TextView) findViewById(R.id.frazeNaslov);
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
-//        Log.d("POLYLING", "kategorijaID: "+kategorijaID);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
         Log.d("POLYLING", "imeKategorije: "+imeKategorije);
-//        String caption = String.format(getResources().getString(R.string.phrase_list_caption), imeKategorije);
-//        naslov.setText(caption);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(imeKategorije);
+
+        ListView list = (ListView) findViewById(R.id.frazeList);
+        assert list != null;
+        list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fraze));
 
     }
 

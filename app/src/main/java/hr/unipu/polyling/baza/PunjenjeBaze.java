@@ -22,6 +22,8 @@ public class PunjenjeBaze {
     }
 
     public static void puniFraze(Baza baza) {
-        //TODO: implementirati po uzoru na puniKategorije
+        baza.obrisiFraze();
+
+        baza.dodajFrazu("Do you have any snacks?", "Imate li grickalice?", baza.getKategorijaIdByNaziv("Food"));
     }
 }

@@ -53,6 +53,6 @@ public class Fraza {
     @Override
     public String toString() {
         //ovisno o postavljenom jeziku vratiti neki drugi?
-        return naziv_hr;
+        return naziv_en + "\n" + naziv_hr;
     }
 }

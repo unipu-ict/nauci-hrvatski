@@ -25,8 +25,8 @@ public class KategorijeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategorije);
+        assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(getResources().getString(R.string.category_list_caption));
-
 
         //instanciranje baze
         baza = new Baza(this);

@@ -10,13 +10,14 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import hr.unipu.polyling.model.Fraza;
 import hr.unipu.polyling.model.Kategorija;
 
 public class Baza {
 
+    private static final String LOGTAG = "POLYLING";
     SQLiteOpenHelper dbhelper;
     SQLiteDatabase database;
-    private static final String LOGTAG = "POLYLING";
 
     public Baza(Context context) {
         dbhelper = new BazaOpenHelper(context);
@@ -34,7 +35,7 @@ public class Baza {
     }
 
     public List<Kategorija> sveKategorije() {
-        List<Kategorija> kategorije = new ArrayList<Kategorija>();
+        List<Kategorija> kategorije = new ArrayList<>();
         String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE;
         Cursor cursor = database.rawQuery(sql, null);
 
@@ -51,7 +52,6 @@ public class Baza {
         }
         cursor.close();
         return kategorije;
-
     }
 
     public Kategorija getKategorijabyID(int id) {
@@ -80,12 +80,10 @@ public class Baza {
         values.put(BazaOpenHelper.KATEGORIJE_NAZIV_HR, naziv_hr);
         values.put(BazaOpenHelper.KATEGORIJE_IMAGE, slika);
         if(database.insert(BazaOpenHelper.TABLE_KATEGORIJE, null, values) > 0) {
-            Log.d(LOGTAG, "Kategorija uspjesno ubacena u bazu");
+            Log.d(LOGTAG, "Kategorija uspjesno ubacena u bazu.");
         } else {
-            Log.d(LOGTAG, "Kategorija nije uspjesno ubacena u bazu. ");
-        };
-
-
+            Log.d(LOGTAG, "Kategorija nije uspjesno ubacena u bazu.");
+        }
     }
 
     public void obrisiKategorije() {
@@ -93,6 +91,59 @@ public class Baza {
         String sql = "DELETE FROM " + BazaOpenHelper.TABLE_KATEGORIJE;
         database.execSQL(sql);
         database.execSQL("VACUUM");//resetiranje baze
-
     }
+
+    public List<Fraza> sveFraze() {
+        List<Fraza> fraze = new ArrayList<>();
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE;
+        Cursor cursor = database.rawQuery(sql, null);
+
+        Log.d(LOGTAG, "Fraza u bazi: " + cursor.getCount());
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                Fraza fraza = new Fraza();
+                fraza.setId(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_ID)));
+                fraza.setNaziv_en(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_EN)));
+                fraza.setNaziv_hr(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_HR)));
+                fraza.setKategorija_id(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_KATEGORIJA_ID)));
+                fraze.add(fraza);
+            }
+        }
+        cursor.close();
+        return fraze;
+    }
+
+    public void dodajFrazu(String naziv_en, String naziv_hr, int kategorijaId) {
+
+        ContentValues values = new ContentValues();
+        values.put(BazaOpenHelper.FRAZE_NAZIV_EN, naziv_en);
+        values.put(BazaOpenHelper.FRAZE_NAZIV_HR, naziv_hr);
+        values.put(BazaOpenHelper.FRAZE_KATEGORIJA_ID, kategorijaId);
+        if (database.insert(BazaOpenHelper.TABLE_FRAZE, null, values) > 0) {
+            Log.d(LOGTAG, "Fraza uspjesno ubacena u bazu.");
+        } else {
+            Log.d(LOGTAG, "Fraza nije uspjesno ubacena u bazu.");
+        }
+    }
+
+    public void obrisiFraze() {
+        String sql = "DELETE FROM " + BazaOpenHelper.TABLE_FRAZE;
+        database.execSQL(sql);
+        database.execSQL("VACUUM");//resetiranje baze
+    }
+
+    public int getKategorijaIdByNaziv(String name) {
+        int idKategorije = 0;
+
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_KATEGORIJE + " WHERE " + BazaOpenHelper.KATEGORIJE_NAZIV_EN + " = " + name;
+        Cursor cursor = database.rawQuery(sql, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            idKategorije = cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.KATEGORIJE_ID));
+            cursor.close();
+        }
+
+        return idKategorije;
+    }
+
 }
