@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:padding="8dp"
     android:gravity="center"
+
     >
 
     <ImageView
         android:id="@+id/slikaKategorije"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/app_name"
         />
 
@@ -25,7 +26,8 @@
 
     <TextView
         android:id="@+id/nazivKategorijeHr"
-        android:textSize="17sp"
+        android:textSize="10sp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center" />

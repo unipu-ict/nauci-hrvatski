@@ -10,7 +10,7 @@ public class PunjenjeBaze {
 
         baza.dodajKategoriju("Basic", "Osnove", "phrases");
         baza.dodajKategoriju("Time", "Vrijeme", "time");
-        baza.dodajKategoriju("Weather", "Prognoza", "weather");
+        baza.dodajKategoriju("Weather", "Vremenska prognoza", "weather");
         baza.dodajKategoriju("Directions", "Upute", "directions");
         baza.dodajKategoriju("Emergency", "SOS", "emergency");
         baza.dodajKategoriju("Food", "Hrana", "food");
