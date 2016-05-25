@@ -3,7 +3,6 @@ package hr.unipu.polyling;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class FrazeListActivity extends AppCompatActivity {
         fraze = baza.getFrazeByKategorijaId(kategorijaID);
         ListView list = (ListView) findViewById(R.id.frazeList);
         assert list != null;
-        list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fraze));
+        list.setAdapter(new FrazeArrayAdapter(this, R.layout.fraza_item, fraze));
 
     }
 
