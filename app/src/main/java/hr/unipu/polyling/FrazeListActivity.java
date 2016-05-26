@@ -9,7 +9,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import hr.unipu.polyling.baza.Baza;
-import hr.unipu.polyling.model.Fraza;
+import hr.unipu.polyling.util.Fraza;
+import hr.unipu.polyling.util.OnSwipeTouchListener;
 
 public class FrazeListActivity extends AppCompatActivity {
 

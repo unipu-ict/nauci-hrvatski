@@ -1,4 +1,4 @@
-package hr.unipu.polyling;
+package hr.unipu.polyling.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import hr.unipu.polyling.model.Kategorija;
+import hr.unipu.polyling.R;
 
 // custom array adapter za podatke tipa kategorija
-class KategorijaArrayAdapter extends ArrayAdapter<Kategorija> {
+public class KategorijaArrayAdapter extends ArrayAdapter<Kategorija> {
 
     Context context;
     List<Kategorija> kategorije;

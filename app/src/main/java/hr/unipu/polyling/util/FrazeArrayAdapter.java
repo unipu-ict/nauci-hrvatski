@@ -1,4 +1,4 @@
-package hr.unipu.polyling;
+package hr.unipu.polyling.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import hr.unipu.polyling.model.Fraza;
+import hr.unipu.polyling.R;
 
 public class FrazeArrayAdapter extends ArrayAdapter<Fraza>{
     Context context;

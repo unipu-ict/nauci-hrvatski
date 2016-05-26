@@ -14,7 +14,8 @@ import java.util.List;
 
 import hr.unipu.polyling.baza.Baza;
 import hr.unipu.polyling.baza.PunjenjeBaze;
-import hr.unipu.polyling.model.Kategorija;
+import hr.unipu.polyling.util.Kategorija;
+import hr.unipu.polyling.util.KategorijaArrayAdapter;
 
 public class KategorijeActivity extends AppCompatActivity {
 

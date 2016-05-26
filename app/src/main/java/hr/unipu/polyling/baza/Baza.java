@@ -10,8 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import hr.unipu.polyling.model.Fraza;
-import hr.unipu.polyling.model.Kategorija;
+import hr.unipu.polyling.util.Fraza;
+import hr.unipu.polyling.util.Kategorija;
 
 public class Baza {
 
