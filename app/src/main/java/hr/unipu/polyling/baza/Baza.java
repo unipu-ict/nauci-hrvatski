@@ -146,4 +146,25 @@ public class Baza {
         return idKategorije;
     }
 
+    public List<Fraza> searchKategorije(String query) {
+        List<Fraza> fraze = new ArrayList<>();
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_NAZIV_EN + " LIKE \'%" + query + "%\'";
+        Cursor cursor = database.rawQuery(sql, null);
+
+        Log.d(LOGTAG, "Koristen sql: " + sql);
+        Log.d(LOGTAG, "Pronadjenih fraza: " + cursor.getCount());
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                Fraza fraza = new Fraza();
+                fraza.setId(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_ID)));
+                fraza.setNaziv_en(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_EN)));
+                fraza.setNaziv_hr(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_HR)));
+                fraza.setKategorija_id(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_KATEGORIJA_ID)));
+                fraze.add(fraza);
+            }
+        }
+        cursor.close();
+        return fraze;
+    }
+
 }

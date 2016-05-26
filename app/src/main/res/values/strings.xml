@@ -4,4 +4,6 @@
     <string name="phrase_list_caption">%1$s phrases</string>
     <string name="refresh_database">Refresh database</string>
     <string name="search_title">Search</string>
+    <string name="search_hint">Search phrases</string>
+    <string name="no_data">No phrases found</string>
 </resources>

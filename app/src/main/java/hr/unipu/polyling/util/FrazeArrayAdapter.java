@@ -32,10 +32,10 @@ public class FrazeArrayAdapter extends ArrayAdapter<Fraza>{
 
         View view = inflater.inflate(R.layout.fraza_item, null);
 
-        TextView nazivEn = (TextView) view.findViewById(R.id.nazivFraze);
+        TextView nazivEn = (TextView) view.findViewById(R.id.nazivFrazeItem);
         nazivEn.setText(fraza.getNaziv_en());
 
-        TextView nazivHr = (TextView) view.findViewById(R.id.nazivFrazeHr);
+        TextView nazivHr = (TextView) view.findViewById(R.id.nazivFrazeHrItem);
         nazivHr.setText(fraza.getNaziv_hr());
 
         if (position % 5 == 0)
