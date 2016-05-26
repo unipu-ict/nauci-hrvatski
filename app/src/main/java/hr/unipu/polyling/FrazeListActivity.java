@@ -3,12 +3,16 @@ package hr.unipu.polyling;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
 
 import hr.unipu.polyling.baza.Baza;
+import hr.unipu.polyling.baza.PunjenjeBaze;
 import hr.unipu.polyling.util.Fraza;
 import hr.unipu.polyling.util.OnSwipeTouchListener;
 
@@ -45,6 +49,7 @@ public class FrazeListActivity extends AppCompatActivity {
         setFrazaText();
 
         ViewGroup layout = (ViewGroup) findViewById(R.id.frazeLayout);
+        assert layout != null;
         layout.setOnTouchListener(new OnSwipeTouchListener(this) {
             public void onSwipeRight() {
                 if (frazeIndex <= 0) frazeIndex = fraze.size() - 1;
@@ -61,7 +66,30 @@ public class FrazeListActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.refresh:
+                //refreshaj bazu podataka
+                PunjenjeBaze.puniKategorije(baza);
+                PunjenjeBaze.puniFraze(baza);
+                recreate();//resetira prikaz
+                return true;
+            case R.id.searchButton:
+                onSearchRequested();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();

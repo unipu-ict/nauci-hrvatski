@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/refresh"
-        android:title="@string/refresh_database"
-        android:icon="@android:drawable/stat_notify_sync_noanim"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/searchButton"
+        android:icon="@android:drawable/ic_menu_search"
         android:orderInCategory="1"
-         />
+        app:showAsAction="always"
+        android:title="@string/search_title" />
+    <item
+        android:id="@+id/refresh"
+        android:icon="@android:drawable/stat_notify_sync_noanim"
+        android:orderInCategory="2"
+        android:title="@string/refresh_database" />
 </menu>

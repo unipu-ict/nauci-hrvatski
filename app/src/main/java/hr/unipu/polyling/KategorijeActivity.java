@@ -73,6 +73,9 @@ public class KategorijeActivity extends AppCompatActivity {
                 PunjenjeBaze.puniFraze(baza);
                 recreate();//resetira prikaz
                 return true;
+            case R.id.searchButton:
+                onSearchRequested();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
