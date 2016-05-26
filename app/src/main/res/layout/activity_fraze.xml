@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frazeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context=".FrazeActivity">
+
 
     <TextView
-        android:id="@+id/nazivFrazeItem"
+        android:id="@+id/nazivFraze"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
         android:drawableStart="@drawable/english"
         android:padding="5dp"
-        android:textSize="20sp" />
+        android:textSize="35sp" />
+
 
     <TextView
-        android:id="@+id/nazivFrazeHrItem"
+        android:id="@+id/nazivFrazeHr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="5dp"
+        android:drawablePadding="10dp"
         android:drawableStart="@drawable/croatian"
         android:padding="5dp"
-        android:textSize="20sp" />
-
+        android:textSize="35sp" />
 </LinearLayout>

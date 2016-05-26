@@ -23,7 +23,7 @@
             android:name=".KategorijeActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".FrazeListActivity"
+            android:name=".FrazeActivity"
             android:parentActivityName=".KategorijeActivity" />
         <activity
             android:name=".SearchActivity" android:launchMode="singleTop"

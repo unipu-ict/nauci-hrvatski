@@ -47,7 +47,7 @@ public class KategorijeActivity extends AppCompatActivity {
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(KategorijeActivity.this, FrazeListActivity.class);
+                Intent intent = new Intent(KategorijeActivity.this, FrazeActivity.class);
                 //pronalazi koja je kategorija dodirnuta i pokreće novu aktivnost koja prikazuje fraze te kategorije
                 int kategorijaID = kategorije.get(position).getId();
                 intent.putExtra("kategorijaID", kategorijaID);

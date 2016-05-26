@@ -38,16 +38,20 @@ public class FrazeArrayAdapter extends ArrayAdapter<Fraza>{
         TextView nazivHr = (TextView) view.findViewById(R.id.nazivFrazeHrItem);
         nazivHr.setText(fraza.getNaziv_hr());
 
-        if (position % 5 == 0)
-            view.setBackgroundColor(Color.parseColor("#d2e7ff"));
-        else if (position % 5 == 1)
-            view.setBackgroundColor(Color.parseColor("#f4f1e6"));
-        else if (position % 5 == 2)
-            view.setBackgroundColor(Color.parseColor("#ead4e1"));
-        else if (position % 5 == 3)
-            view.setBackgroundColor(Color.parseColor("#d6b6c3"));
-        else
-            view.setBackgroundColor(Color.parseColor("#d09db9"));
+//        if (position % 5 == 0)
+//            view.setBackgroundColor(Color.parseColor("#d2e7ff"));
+//        else if (position % 5 == 1)
+//            view.setBackgroundColor(Color.parseColor("#f4f1e6"));
+//        else if (position % 5 == 2)
+//            view.setBackgroundColor(Color.parseColor("#ead4e1"));
+//        else if (position % 5 == 3)
+//            view.setBackgroundColor(Color.parseColor("#d6b6c3"));
+//        else
+//            view.setBackgroundColor(Color.parseColor("#d09db9"));
+
+        //manje šarenila
+        if(position % 2 ==0) view.setBackgroundColor(Color.parseColor("#d2e7ff"));
+        else view.setBackgroundColor(Color.parseColor("#f4f1e6"));
 
         return view;
     }

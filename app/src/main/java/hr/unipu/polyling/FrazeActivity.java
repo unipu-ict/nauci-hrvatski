@@ -16,7 +16,7 @@ import hr.unipu.polyling.baza.PunjenjeBaze;
 import hr.unipu.polyling.util.Fraza;
 import hr.unipu.polyling.util.OnSwipeTouchListener;
 
-public class FrazeListActivity extends AppCompatActivity {
+public class FrazeActivity extends AppCompatActivity {
 
     Baza baza;
     private List<Fraza> fraze;
@@ -32,7 +32,7 @@ public class FrazeListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fraze_list);
+        setContentView(R.layout.activity_fraze);
 
         baza = new Baza(this);
 
