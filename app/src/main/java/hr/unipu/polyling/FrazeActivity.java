@@ -24,10 +24,7 @@ public class FrazeActivity extends AppCompatActivity {
     private TextView nazivHr;
     private int frazeIndex = 0;
 
-    private void setFrazaText() {
-        naziv.setText(fraze.get(frazeIndex).getNaziv_en());
-        nazivHr.setText(fraze.get(frazeIndex).getNaziv_hr());
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +63,12 @@ public class FrazeActivity extends AppCompatActivity {
         });
 
     }
+
+    private void setFrazaText() {
+        naziv.setText(fraze.get(frazeIndex).getNaziv_en());
+        nazivHr.setText(fraze.get(frazeIndex).getNaziv_hr());
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

@@ -32,7 +32,7 @@ public class SearchActivity extends ListActivity {
     }
 
     private void pretrazi(String query) {
-        fraze = baza.searchKategorije(query);
+        fraze = baza.searchFraze(query);
         setListAdapter(new FrazeArrayAdapter(this, R.layout.fraza_item, fraze));
     }
 

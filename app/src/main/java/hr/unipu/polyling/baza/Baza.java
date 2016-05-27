@@ -146,7 +146,7 @@ public class Baza {
         return idKategorije;
     }
 
-    public List<Fraza> searchKategorije(String query) {
+    public List<Fraza> searchFraze(String query) {
         List<Fraza> fraze = new ArrayList<>();
         String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_NAZIV_EN + " LIKE \'%" + query + "%\'";
         Cursor cursor = database.rawQuery(sql, null);
