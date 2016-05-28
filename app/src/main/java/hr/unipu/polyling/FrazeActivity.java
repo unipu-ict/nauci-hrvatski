@@ -1,15 +1,19 @@
 package hr.unipu.polyling;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
 import hr.unipu.polyling.baza.Baza;
 import hr.unipu.polyling.baza.PunjenjeBaze;
@@ -22,6 +26,8 @@ public class FrazeActivity extends AppCompatActivity {
     private List<Fraza> fraze;
     private TextView naziv;
     private TextView nazivHr;
+    private Button speakButton;
+    private TextToSpeech spiker;
     private int frazeIndex = 0;
 
 
@@ -32,6 +38,14 @@ public class FrazeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fraze);
 
         baza = new Baza(this);
+        spiker = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    spiker.setLanguage(Locale.UK);
+                }
+            }
+        });
 
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
@@ -42,6 +56,7 @@ public class FrazeActivity extends AppCompatActivity {
         fraze = baza.getFrazeByKategorijaId(kategorijaID);
         naziv = (TextView) findViewById(R.id.nazivFraze);
         nazivHr = (TextView) findViewById(R.id.nazivFrazeHr);
+        speakButton = (Button) findViewById(R.id.speakButton);
 
         setFrazaText();
 
@@ -62,6 +77,21 @@ public class FrazeActivity extends AppCompatActivity {
             }
         });
 
+        speakButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                izgovori();
+            }
+        });
+
+    }
+
+    private void izgovori() {
+        //TODO: naći bolju funkciju i nek izgovara hrvatski naziv fraze, ovako je namjerno na eng jer ne liči na ništa kad izgovara hrvatske riječi
+        if (!spiker.isSpeaking()) {
+            String tekst = naziv.getText().toString();
+            spiker.speak(tekst, TextToSpeech.QUEUE_FLUSH, null);
+        }
     }
 
     private void setFrazaText() {
@@ -103,5 +133,8 @@ public class FrazeActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         baza.close();
+        if(spiker!=null) {
+            spiker.shutdown();
+        }
     }
 }

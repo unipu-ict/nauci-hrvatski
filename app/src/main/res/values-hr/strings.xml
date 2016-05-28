@@ -7,4 +7,5 @@
     <string name="search_title">Pretraga</string>
     <string name="search_hint">Pretraži fraze</string>
     <string name="no_data">Nema pronađenih fraza</string>
+    <string name="speak">Izgovori</string>
 </resources>
