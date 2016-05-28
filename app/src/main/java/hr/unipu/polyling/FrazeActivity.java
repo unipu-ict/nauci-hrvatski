@@ -42,7 +42,9 @@ public class FrazeActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
-                    spiker.setLanguage(Locale.CANADA);
+//                    spiker.setLanguage(Locale.getDefault());
+                    spiker.setLanguage(Locale.forLanguageTag("pl")); //poljski fino čita
+                    spiker.setSpeechRate(0.85f);
                 }
             }
         });
@@ -87,9 +89,9 @@ public class FrazeActivity extends AppCompatActivity {
     }
 
     private void izgovori() {
-        //TODO: naći bolju funkciju i nek izgovara hrvatski naziv fraze, ovako je namjerno na eng jer ne liči na ništa kad izgovara hrvatske riječi
+
         if (!spiker.isSpeaking()) {
-            String tekst = naziv.getText().toString();
+            String tekst = nazivHr.getText().toString();
             spiker.speak(tekst, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
