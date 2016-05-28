@@ -42,7 +42,7 @@ public class FrazeActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
-                    spiker.setLanguage(Locale.UK);
+                    spiker.setLanguage(Locale.CANADA);
                 }
             }
         });
