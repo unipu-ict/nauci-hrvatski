@@ -47,10 +47,19 @@ public class KategorijeActivity extends AppCompatActivity {
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(KategorijeActivity.this, FrazeActivity.class);
+                //provjerava je li odabran kviz ili riječnik
+                boolean zakviz = getIntent().getBooleanExtra("kviz", false);
+
+                Intent intent;
+
+                if(zakviz) {intent = new Intent(KategorijeActivity.this, QuizActivity.class);}//odabran je kviz, na tu aktivnost idi
+                else {intent = new Intent(KategorijeActivity.this, FrazeActivity.class);}//odabran riječnik
+
                 //pronalazi koja je kategorija dodirnuta i pokreće novu aktivnost koja prikazuje fraze te kategorije
                 int kategorijaID = kategorije.get(position).getId();
                 intent.putExtra("kategorijaID", kategorijaID);
+
+
                 startActivity(intent);
             }
         });

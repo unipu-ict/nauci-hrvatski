@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, KategorijeActivity.class);
         startActivity(intent);
     }
-
+    public void otvoriKategorijeKviz(View view) {
+        Intent intent = new Intent(this, KategorijeActivity.class);
+        intent.putExtra("kviz", true);
+        startActivity(intent);
+    }
     public void otvoriSearch(View view) {
         onSearchRequested();
     }
@@ -45,5 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
 }
