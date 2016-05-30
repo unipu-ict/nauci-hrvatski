@@ -28,6 +28,7 @@ public class FrazeActivity extends AppCompatActivity {
     private TextView nazivHr;
     private Button speakButton;
     private TextToSpeech spiker;
+    private static final String INDEX = "index";
     private int frazeIndex = 0;
 
 
@@ -48,6 +49,12 @@ public class FrazeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //čitanje spremljenog indexa fraze
+        if (savedInstanceState!=null) {
+            frazeIndex = savedInstanceState.getInt(INDEX, 0);
+        }
+
 
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
@@ -125,6 +132,14 @@ public class FrazeActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //spremanje trenutnog indexa fraze
+        outState.putInt(INDEX, frazeIndex);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -135,8 +150,15 @@ public class FrazeActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         baza.close();
+
+    }
+
+    @Override
+    protected void onStop() {
         if(spiker!=null) {
             spiker.shutdown();
         }
+        super.onStop();
+
     }
 }
