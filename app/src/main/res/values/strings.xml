@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PolyLing</string>
     <string name="category_list_caption">Categories</string>
+    <string name="quiz_caption">Quiz</string>
     <string name="phrase_list_caption">%1$s phrases</string>
     <string name="refresh_database">Refresh database</string>
     <string name="search_title">Search</string>

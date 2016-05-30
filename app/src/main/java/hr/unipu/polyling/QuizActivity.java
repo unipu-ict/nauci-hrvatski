@@ -9,5 +9,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setTitle(getResources().getString(R.string.quiz_caption));
     }
 }
