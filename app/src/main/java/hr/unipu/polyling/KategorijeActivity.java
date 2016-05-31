@@ -79,6 +79,7 @@ public class KategorijeActivity extends AppCompatActivity {
             case R.id.refresh:
                 //refreshaj bazu podataka
                 PunjenjeBaze.puniKategorije(baza);
+                //TODO: zamijeniti asinkronim izvođenjem u pozadini jer predugo traje
                 PunjenjeBaze.puniFraze(baza);
                 recreate();//resetira prikaz
                 return true;

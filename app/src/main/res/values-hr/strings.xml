@@ -9,4 +9,5 @@
     <string name="no_data">Nema pronađenih fraza</string>
     <string name="speak">Poslušaj</string>
     <string name="quiz_caption">Kviz</string>
+    <string name="refreshing_database">Osvježavanje baze…</string>
 </resources>
