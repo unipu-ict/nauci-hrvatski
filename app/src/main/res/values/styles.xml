@@ -9,4 +9,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PocetnaTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
 </resources>

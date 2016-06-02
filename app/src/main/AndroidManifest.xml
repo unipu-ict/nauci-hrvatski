@@ -12,7 +12,8 @@
             android:name="android.app.default_searchable"
             android:value=".SearchActivity" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/PocetnaTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
