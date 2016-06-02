@@ -213,10 +213,7 @@ public class PunjenjeBaze {
         baza.dodajFrazu("Damn it!", "K vragu!", baza.getKategorijaIdByNaziv("Basic"));
         baza.dodajFrazu("What's your name?", "Kako se zoveš?", baza.getKategorijaIdByNaziv("Conversations"));
         baza.dodajFrazu("My name's …", "Zovem se …", baza.getKategorijaIdByNaziv("Conversations"));
-        baza.dodajFrazu("Chris", "Chris", baza.getKategorijaIdByNaziv("Conversations"));
-        baza.dodajFrazu("Emily", "Emily", baza.getKategorijaIdByNaziv("Conversations"));
         baza.dodajFrazu("This is …", "Ovo je …", baza.getKategorijaIdByNaziv("Conversations"));
-        baza.dodajFrazu("Lucy", "Lucy", baza.getKategorijaIdByNaziv("Conversations"));
         baza.dodajFrazu("My wife", "Moja žena", baza.getKategorijaIdByNaziv("Conversations"));
         baza.dodajFrazu("My husband", "Moj muž", baza.getKategorijaIdByNaziv("Conversations"));
         baza.dodajFrazu("My boyfriend", "Moj dečko", baza.getKategorijaIdByNaziv("Conversations"));
@@ -298,9 +295,7 @@ public class PunjenjeBaze {
         baza.dodajFrazu("What size are you?", "Koja ste veličina?", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("What size do you take?", "Koju veličinu uzimate?", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("Do you have this in a size …?", "Imate li ovo u veličini …?", baza.getKategorijaIdByNaziv("Shopping"));
-        baza.dodajFrazu("7", "7", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("Do you have these in a size …?", "Imate li ove u veličini …?", baza.getKategorijaIdByNaziv("Shopping"));
-        baza.dodajFrazu("12", "12", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("Do you have a fitting room?", "Imate li garderobu?", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("Where's the fitting room?", "Gdje je garderoba?", baza.getKategorijaIdByNaziv("Shopping"));
         baza.dodajFrazu("Have you got this in a smaller size?", "Imate li ovo u manjoj veličini?", baza.getKategorijaIdByNaziv("Shopping"));
