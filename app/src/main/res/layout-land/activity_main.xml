@@ -3,51 +3,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1"
+    android:background="#cfd0d1"
     android:gravity="center"
     tools:context="hr.unipu.polyling.MainActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="398dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:baselineAlignBottom="false"
         android:contentDescription="logo"
-        android:src="@drawable/polylinglogo" />
+        android:background="#cfd0d1"
+        android:src="@drawable/polyling"
+        android:layout_weight="0.07" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:textSize="20dp"
+        android:text="Welcome! Learn Croatian language in a fun way."
+        android:textColor="#3333cc"
+        android:textAlignment="center"
         android:gravity="center"
-        >
+        android:layout_marginBottom="15dp"/>
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="90dp"
-            android:onClick="otvoriKategorije"
-            android:src="@drawable/dictionary" />
+    <!--<ImageView-->
+        <!--android:layout_width="248dp"-->
+        <!--android:layout_height="116dp"-->
+        <!--android:layout_marginTop="7dp"-->
+        <!--android:layout_marginBottom="25dp"-->
+        <!--android:baselineAlignBottom="false"-->
+        <!--android:src="@drawable/mainlast"-->
+        <!--/>-->
 
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="90dp"
-            android:onClick="otvoriKategorijeKviz"
-            android:src="@drawable/quiz" />
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:onClick="otvoriKategorije"
+        android:background="#b2b2b3"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="15dp"
+        android:drawableLeft="@drawable/rjecnik"
+        android:textSize="25dp"
+        android:textColor="#3333cc"
+        android:text="Dictionary"
+        android:gravity="center"/>
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="90dp"
-            android:onClick="otvoriSearch"
-            android:src="@drawable/search" />
-    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:onClick="otvoriKategorijeKviz"
+        android:drawableLeft="@drawable/test"
+        android:background="#b2b2b3"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="25dp"
+        android:textColor="#3333cc"
+        android:text="Quiz"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:onClick="otvoriSearch"
+        android:drawableLeft="@drawable/trazi"
+        android:background="#b2b2b3"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="25dp"
+        android:textColor="#3333cc"
+        android:text="Translate"
+        android:gravity="center"
+        />
+
+
+
+
+
+
 
 
 </LinearLayout>
+
