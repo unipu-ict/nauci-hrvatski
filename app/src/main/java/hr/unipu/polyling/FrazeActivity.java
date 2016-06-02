@@ -45,8 +45,8 @@ public class FrazeActivity extends AppCompatActivity {
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
 //                    spiker.setLanguage(Locale.getDefault());
-                    spiker.setLanguage(Locale.forLanguageTag("pl")); //poljski fino čita
-                    spiker.setSpeechRate(0.85f);
+                    spiker.setLanguage(Locale.forLanguageTag("cs")); //češki fino čita
+                    spiker.setSpeechRate(0.86f);
                 }
             }
         });
