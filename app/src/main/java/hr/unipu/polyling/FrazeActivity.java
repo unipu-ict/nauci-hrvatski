@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class FrazeActivity extends AppCompatActivity {
     private List<Fraza> fraze;
     private TextView naziv;
     private TextView nazivHr;
-    private Button speakButton;
+    private ImageView speakButton;
     private TextToSpeech spiker;
     private static final String INDEX = "index";
     private int frazeIndex = 0;
@@ -65,7 +66,7 @@ public class FrazeActivity extends AppCompatActivity {
         fraze = baza.getFrazeByKategorijaId(kategorijaID);
         naziv = (TextView) findViewById(R.id.nazivFraze);
         nazivHr = (TextView) findViewById(R.id.nazivFrazeHr);
-        speakButton = (Button) findViewById(R.id.speakButton);
+        speakButton = (ImageView) findViewById(R.id.speakButton);
 
         setFrazaText();
 

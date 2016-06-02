@@ -36,7 +36,7 @@
 
     <ImageView
         android:layout_width="320dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="25dp"
         android:baselineAlignBottom="false"
@@ -52,10 +52,12 @@
             android:layout_marginBottom="10dp"
             android:paddingLeft="5dp"
             android:drawableLeft="@drawable/rjecnik"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="#3333cc"
             android:text="Dictionary"
-            android:gravity="center"/>
+            android:drawablePadding="15dp"
+            android:gravity="center|left"
+            />
 
 
 
@@ -67,10 +69,11 @@
             android:background="#b2b2b3"
             android:paddingLeft="5dp"
             android:layout_marginBottom="10dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="#3333cc"
             android:text="Quiz"
-            android:gravity="center"
+            android:drawablePadding="15dp"
+            android:gravity="center|left"
              />
 
         <TextView
@@ -81,10 +84,11 @@
             android:background="#b2b2b3"
             android:paddingLeft="5dp"
             android:layout_marginBottom="10dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="#3333cc"
-            android:text="Translate"
-            android:gravity="center"
+            android:text="Search"
+            android:drawablePadding="15dp"
+            android:gravity="center|left"
             />
 
 

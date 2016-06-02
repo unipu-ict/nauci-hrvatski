@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="25sp"
-        android:textColor="#FF0000"
+        android:textColor="#3333cc"
         android:text="@string/no_data"
         />
 </LinearLayout>
