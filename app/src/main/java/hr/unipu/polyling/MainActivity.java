@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void otvoriSearch(View view) {
-        onSearchRequested();
+       // onSearchRequested();
+        Intent intent = new Intent(this, TranslateActivity.class);
+        startActivity(intent);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

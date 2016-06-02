@@ -83,7 +83,7 @@
             android:layout_marginBottom="10dp"
             android:textSize="25dp"
             android:textColor="#3333cc"
-            android:text="Search"
+            android:text="Translate"
             android:gravity="center"
             />
 

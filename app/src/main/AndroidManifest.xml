@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hr.unipu.polyling">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,9 @@
             android:name="android.app.default_searchable"
             android:value=".SearchActivity" />
 
-        <activity android:name=".MainActivity" android:theme="@style/PocetnaTheme">
-
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/PocetnaTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +40,8 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".TranslateActivity" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
