@@ -31,13 +31,13 @@ public class KategorijeActivity extends AppCompatActivity {
 
         //instanciranje baze
         baza = new Baza(this);
+        baza.test();
         //čitanje svih kategorija u bazu i spremanje u listu
         kategorije = baza.sveKategorije();
         if(kategorije.size()==0) {
             //ukoliko nije pronađena ni jedna kategorija, treba napuniti bazu kategorijama
-            PunjenjeBaze.puniKategorije(baza);
+            new PunjenjeBaze(this).execute(baza);
             kategorije = baza.sveKategorije();
-
         }
         GridView grid = (GridView) findViewById(R.id.kategorijeGrid);
         assert grid != null;
@@ -78,10 +78,7 @@ public class KategorijeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.refresh:
                 //refreshaj bazu podataka
-                PunjenjeBaze.puniKategorije(baza);
-                //TODO: zamijeniti asinkronim izvođenjem u pozadini jer predugo traje
-                PunjenjeBaze.puniFraze(baza);
-                recreate();//resetira prikaz
+                new PunjenjeBaze(this).execute(baza);
                 return true;
             case R.id.searchButton:
                 onSearchRequested();

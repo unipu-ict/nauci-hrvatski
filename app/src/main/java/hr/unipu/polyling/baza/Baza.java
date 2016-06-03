@@ -90,7 +90,19 @@ public class Baza {
         //ne postoji TRUNCATE u sqlite
         String sql = "DELETE FROM " + BazaOpenHelper.TABLE_KATEGORIJE;
         database.execSQL(sql);
-        database.execSQL("VACUUM");//resetiranje baze
+        sql = "DELETE FROM SQLITE_SEQUENCE WHERE NAME='" + BazaOpenHelper.TABLE_KATEGORIJE + "'";
+        database.execSQL(sql); //resetiranje autoincrement ROWID-a
+    }
+
+    public void test() {
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE;
+        Cursor cursor = database.rawQuery(sql,null);
+        while (cursor.moveToNext()) {
+            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_ID)));
+            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_EN)));
+            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_HR)));
+            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_KATEGORIJA_ID)));
+        }
     }
 
     public List<Fraza> getFrazeByKategorijaId(int kategorijaId) {
@@ -129,7 +141,8 @@ public class Baza {
     public void obrisiFraze() {
         String sql = "DELETE FROM " + BazaOpenHelper.TABLE_FRAZE;
         database.execSQL(sql);
-        database.execSQL("VACUUM");//resetiranje baze
+        sql = "DELETE FROM SQLITE_SEQUENCE WHERE NAME='" + BazaOpenHelper.TABLE_FRAZE + "'";
+        database.execSQL(sql); //resetiranje autoincrement ROWID-a
     }
 
     public int getKategorijaIdByNaziv(String name) {

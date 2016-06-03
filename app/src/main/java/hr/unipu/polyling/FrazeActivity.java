@@ -120,9 +120,7 @@ public class FrazeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.refresh:
                 //refreshaj bazu podataka
-                PunjenjeBaze.puniKategorije(baza);
-                PunjenjeBaze.puniFraze(baza);
-                recreate();//resetira prikaz
+                new PunjenjeBaze(this).execute(baza);
                 return true;
             case R.id.searchButton:
                 onSearchRequested();
