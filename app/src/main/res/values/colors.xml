@@ -4,4 +4,5 @@
     <color name="colorPrimary">#3333cc</color>
     <color name="colorPrimaryDark">#080079</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="pozadina">#e6f7ff</color>
 </resources>

@@ -9,7 +9,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1"
-    android:background="#cfd0d1"
     tools:context="hr.unipu.polyling.MainActivity">
 
     <ImageView
@@ -20,7 +19,7 @@
         android:layout_marginBottom="10dp"
         android:baselineAlignBottom="false"
         android:contentDescription="logo"
-        android:background="#cfd0d1"
+
         android:src="@drawable/polyling"
         android:layout_weight="0.07" />
 
@@ -48,12 +47,12 @@
             android:layout_width="320dp"
             android:layout_height="60dp"
             android:onClick="otvoriKategorije"
-            android:background="#b2b2b3"
             android:layout_marginBottom="10dp"
             android:paddingLeft="5dp"
             android:drawableLeft="@drawable/rjecnik"
             android:textSize="25sp"
             android:textColor="#3333cc"
+            android:background="#cef0ff"
             android:text="Dictionary"
             android:drawablePadding="15dp"
             android:gravity="center|left"
@@ -66,7 +65,7 @@
             android:layout_height="60dp"
             android:onClick="otvoriKategorijeKviz"
             android:drawableLeft="@drawable/test"
-            android:background="#b2b2b3"
+            android:background="#cef0ff"
             android:paddingLeft="5dp"
             android:layout_marginBottom="10dp"
             android:textSize="25sp"
@@ -81,7 +80,7 @@
             android:layout_height="60dp"
             android:onClick="otvoriTranslate"
             android:drawableLeft="@drawable/trazi"
-            android:background="#b2b2b3"
+            android:background="#cef0ff"
             android:paddingLeft="5dp"
             android:layout_marginBottom="10dp"
             android:textSize="25sp"
