@@ -81,7 +81,7 @@
     <TextView
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:onClick="otvoriSearch"
+        android:onClick="otvoriTranslate"
         android:drawableLeft="@drawable/trazi"
         android:background="#b2b2b3"
         android:paddingLeft="15dp"

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("kviz", true);
         startActivity(intent);
     }
-    public void otvoriSearch(View view) {
+    public void otvoriTranslate(View view) {
        // onSearchRequested();
         Intent intent = new Intent(this, TranslateActivity.class);
         startActivity(intent);
