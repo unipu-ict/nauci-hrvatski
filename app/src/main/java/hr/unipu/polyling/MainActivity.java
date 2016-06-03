@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("kviz", true);
         startActivity(intent);
     }
-    public void otvoriSearch(View view) {
-        onSearchRequested();
+    public void otvoriTranslate(View view) {
+       // onSearchRequested();
+        Intent intent = new Intent(this, TranslateActivity.class);
+        startActivity(intent);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

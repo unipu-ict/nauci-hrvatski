@@ -50,8 +50,17 @@ public class FrazeArrayAdapter extends ArrayAdapter<Fraza>{
 //            view.setBackgroundColor(Color.parseColor("#d09db9"));
 
         //manje šarenila
-        if(position % 2 ==0) view.setBackgroundColor(Color.parseColor("#d2e7ff"));
-        else view.setBackgroundColor(Color.parseColor("#f4f1e6"));
+        if(position % 2 ==0) {
+            view.setBackgroundColor(Color.parseColor("#ffffff"));
+            nazivEn.setTextColor(Color.parseColor("#3333cc"));
+            nazivHr.setTextColor(Color.parseColor("#3333cc"));
+
+        }
+        else {
+            view.setBackgroundColor(Color.parseColor("#e6f7ff"));
+            nazivEn.setTextColor(Color.parseColor("#3333cc"));
+            nazivHr.setTextColor(Color.parseColor("#3333cc"));
+        }
 
         return view;
     }
