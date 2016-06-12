@@ -43,7 +43,7 @@
         </activity>
         <activity
             android:name=".QuizActivity"
-            android:parentActivityName=".KategorijeActivity"/>
+            android:parentActivityName=".KategorijeActivity" />
         <activity
             android:name=".TranslateActivity"
             android:parentActivityName=".MainActivity" />
@@ -56,6 +56,7 @@
         <activity
             android:name=".quizWriteActivity"
             android:parentActivityName=".KategorijeActivity" />
+        <activity android:name=".rezultatiActivity"></activity>
     </application>
 
 </manifest>

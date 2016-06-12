@@ -57,7 +57,7 @@ public class FrazeActivity extends AppCompatActivity {
         }
 
         //poruka korisniku kako se može kretati kroz fraze
-        Toast.makeText(FrazeActivity.this, "Swype left or right", Toast.LENGTH_SHORT).show();
+        Toast.makeText(FrazeActivity.this, "Swipe left or right", Toast.LENGTH_SHORT).show();
 
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
