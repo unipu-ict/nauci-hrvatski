@@ -94,20 +94,8 @@ public class Baza {
         database.execSQL(sql); //resetiranje autoincrement ROWID-a
     }
 
-    public void test() {
-        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE;
-        Cursor cursor = database.rawQuery(sql,null);
-        while (cursor.moveToNext()) {
-            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_ID)));
-            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_EN)));
-            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_HR)));
-            Log.d(LOGTAG, cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_KATEGORIJA_ID)));
-        }
-    }
-
-    public List<Fraza> getFrazeByKategorijaId(int kategorijaId) {
+    private List<Fraza> sqlFrazeList(String sql) {
         List<Fraza> fraze = new ArrayList<>();
-        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId;
         Cursor cursor = database.rawQuery(sql, null);
 
         Log.d(LOGTAG, "Fraza u bazi: " + cursor.getCount());
@@ -122,6 +110,24 @@ public class Baza {
             }
         }
         cursor.close();
+        return fraze;
+    }
+
+    public List<Fraza> getFrazeByKategorijaId(int kategorijaId) {
+        List<Fraza> fraze;
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId;
+
+        fraze = sqlFrazeList(sql);
+
+        return fraze;
+    }
+
+    public List<Fraza> getRandomFraze(int kategorijaId) {
+        List<Fraza> fraze;
+        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId + " ORDER BY RANDOM() LIMIT 3";
+
+        fraze = sqlFrazeList(sql);
+
         return fraze;
     }
 
@@ -160,24 +166,12 @@ public class Baza {
     }
 
     public List<Fraza> searchFraze(String query) {
-        List<Fraza> fraze = new ArrayList<>();
+        List<Fraza> fraze;
         String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_NAZIV_EN + " LIKE \'%" + query + "%\'";
-        Cursor cursor = database.rawQuery(sql, null);
+        fraze = sqlFrazeList(sql);
 
         Log.d(LOGTAG, "Koristen sql: " + sql);
-        Log.d(LOGTAG, "Pronadjenih fraza: " + cursor.getCount());
-        if (cursor.getCount() > 0) {
-            while (cursor.moveToNext()) {
-                Fraza fraza = new Fraza();
-                fraza.setId(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_ID)));
-                fraza.setNaziv_en(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_EN)));
-                fraza.setNaziv_hr(cursor.getString(cursor.getColumnIndex(BazaOpenHelper.FRAZE_NAZIV_HR)));
-                fraza.setKategorija_id(cursor.getInt(cursor.getColumnIndex(BazaOpenHelper.FRAZE_KATEGORIJA_ID)));
-                fraze.add(fraza);
-            }
-        }
-        cursor.close();
+
         return fraze;
     }
-
 }

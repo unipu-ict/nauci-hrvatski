@@ -31,7 +31,6 @@ public class KategorijeActivity extends AppCompatActivity {
 
         //instanciranje baze
         baza = new Baza(this);
-        baza.test();
         //čitanje svih kategorija u bazu i spremanje u listu
         kategorije = baza.sveKategorije();
         if(kategorije.size()==0) {
