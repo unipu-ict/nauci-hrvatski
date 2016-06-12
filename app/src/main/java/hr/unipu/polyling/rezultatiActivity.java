@@ -1,8 +1,8 @@
 package hr.unipu.polyling;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +14,7 @@ public class rezultatiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rezultati);
 
         int brojTocnih = getIntent().getIntExtra("brojTocnih", 0);
-        String poruka = null;
+        String poruka = "";
          switch (brojTocnih) {
                  case 0: poruka="Very bad";
                      break;
@@ -26,19 +26,15 @@ public class rezultatiActivity extends AppCompatActivity {
                      break;
                  case 4: poruka="Great!";
                      break;
-                 case 5: poruka="Exellent!";
+                 case 5: poruka="Excellent!";
                      break;
-
          }
 
         TextView viewBrojTocnih = (TextView) findViewById(R.id.brojTocnih);
         TextView viewPoruka = (TextView) findViewById(R.id.poruka);
 
-        viewBrojTocnih.setText(brojTocnih);
+        viewBrojTocnih.setText(Integer.toString(brojTocnih));
         viewPoruka.setText(poruka);
-
-
-
     }
 
 
