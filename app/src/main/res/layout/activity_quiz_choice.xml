@@ -23,7 +23,7 @@
         android:text="Choose the right answer:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#3333cc"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:paddingBottom="30dp"
         android:id="@+id/opis" />
 
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#3333cc"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:gravity="center"
         android:id="@+id/question" />
@@ -45,30 +45,32 @@
         android:layout_height="match_parent"
         android:paddingTop="50dp"
         android:orientation="vertical">
-        
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/radioGroup">
 
-            <RadioButton
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:id="@+id/choice1"
-                android:background="#cef0ff"
-                android:layout_gravity="start" />
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:buttonTint="#3333cc"
+            android:id="@+id/choice1"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
 
-            <RadioButton
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:id="@+id/choice2"
-                android:background="#cef0ff"
-                android:layout_gravity="start" />
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice2"
+            android:buttonTint="#3333cc"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
 
             <RadioButton
                 android:layout_marginTop="@dimen/activity_vertical_margin"
