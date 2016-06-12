@@ -23,13 +23,12 @@ public class QuizActivity extends AppCompatActivity {
     private void getRandomQuiz() {
         Class[] activities = {
                 quizChoiceActivity.class,
-                quizListenActivity.class,
-                quizWriteActivity.class
+                quizListenActivity.class
         };
 
         Random random = new Random();
 //        int randN = random.nextInt(activities.length);
-        int randN = 0;
+        int randN = 1;
 
         Intent intent = new Intent(this, activities[randN]);
         intent.putExtra("kategorijaID", kategorijaID);

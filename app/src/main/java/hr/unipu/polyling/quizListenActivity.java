@@ -28,7 +28,7 @@ public class quizListenActivity extends AppCompatActivity {
     private ImageView speakButton;
     private TextToSpeech spiker;
     private RadioGroup radioGroup;
-    private String[] correctFraza;
+    private Fraza correctFraza;
     private int correctAnswers = 0;
     private int numberOfQuestions = 0;
 
@@ -42,6 +42,7 @@ public class quizListenActivity extends AppCompatActivity {
         choice1 = (RadioButton) findViewById(R.id.choice1);
         choice2 = (RadioButton) findViewById(R.id.choice2);
         choice3 = (RadioButton) findViewById(R.id.choice3);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         speakButton = (ImageView) findViewById(R.id.question);
 
         spiker = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -65,7 +66,7 @@ public class quizListenActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = (RadioButton) group.findViewById(checkedId);
                 String text = radioButton.getText().toString();
-                if (correctFraza[1].compareTo(text) == 0) {
+                if (correctFraza.getNaziv_en().compareTo(text) == 0) {
                     Toast.makeText(quizListenActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
                     correctAnswers++;
                 }
@@ -92,20 +93,21 @@ public class quizListenActivity extends AppCompatActivity {
         ArrayList<Fraza> fraze = (ArrayList<Fraza>) baza.getRandomFraze(kategorijaID);
         Random random = new Random();
         int randQuestion = random.nextInt(fraze.size());
+        int rand = random.nextInt(fraze.size());
         numberOfQuestions++;
 
-        Fraza q1 = fraze.get(randQuestion);
+        Fraza q1 = fraze.get(rand);
         fraze.remove(q1);
 
-        randQuestion = random.nextInt(fraze.size());
-        Fraza q2 = fraze.get(randQuestion);
+        rand = random.nextInt(fraze.size());
+        Fraza q2 = fraze.get(rand);
         fraze.remove(q2);
 
-        randQuestion = random.nextInt(fraze.size());
-        Fraza q3 = fraze.get(randQuestion);
+        rand = random.nextInt(fraze.size());
+        Fraza q3 = fraze.get(rand);
         fraze.remove(q3);
 
-        randQuestion = random.nextInt(fraze.size());
+        correctFraza = q1;
 
         switch (randQuestion + 1) {
             case 1:
@@ -134,8 +136,8 @@ public class quizListenActivity extends AppCompatActivity {
     private void izgovori() {
 
             if (!spiker.isSpeaking()) {
-                String tekst;// = nazivHr.getText().toString();
-                //spiker.speak(tekst, TextToSpeech.QUEUE_FLUSH, null);
+                String tekst = correctFraza.getNaziv_hr();
+                spiker.speak(tekst, TextToSpeech.QUEUE_FLUSH, null);
             }
     }
 }
