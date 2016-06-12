@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hr.unipu.polyling">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -41,7 +42,12 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".QuizActivity" />
-        <activity android:name=".TranslateActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".TranslateActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".quizChoiceActivity" />
+        <activity android:name=".quizListenActivity" />
+        <activity android:name=".quizWriteActivity"></activity>
     </application>
 
 </manifest>
