@@ -59,8 +59,6 @@ public class quizChoiceActivity extends AppCompatActivity {
                 radioButton.setChecked(false);
 
                 if (numberOfQuestions > 4) {
-//                    Toast.makeText(quizChoiceActivity.this, "Number of correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
-//                    finish();
                     Intent intent = new Intent(quizChoiceActivity.this, rezultatiActivity.class);
                     intent.putExtra("brojTocnih", correctAnswers);
                     startActivity(intent);

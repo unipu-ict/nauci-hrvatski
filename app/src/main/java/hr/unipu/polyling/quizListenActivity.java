@@ -1,5 +1,6 @@
 package hr.unipu.polyling;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
@@ -76,8 +77,9 @@ public class quizListenActivity extends AppCompatActivity {
                 radioButton.setChecked(false);
 
                 if (numberOfQuestions > 4) {
-                    Toast.makeText(quizListenActivity.this, "Number of correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
-                    finish();
+                    Intent intent = new Intent(quizListenActivity.this, rezultatiActivity.class);
+                    intent.putExtra("brojTocnih", correctAnswers);
+                    startActivity(intent);
                 }
 
                 setRandomQuestion();
