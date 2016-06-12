@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,70 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="hr.unipu.polyling.quizListenActivity">
+    android:textColor="#3333cc"
+    android:orientation="vertical"
+    tools:context="hr.unipu.polyling.quizChoiceActivity"
+    android:weightSum="1">
 
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listen and choose right answer:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#3333cc"
+        android:textSize="30sp"
+        android:paddingBottom="30dp"
+        android:id="@+id/opis" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/hear"
+        android:id="@+id/question" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice1"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice2"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice3"
+            android:buttonTint="#3333cc"
+            android:background="#cef0ff"
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
