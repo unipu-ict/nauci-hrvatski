@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Locale;
@@ -55,6 +56,8 @@ public class FrazeActivity extends AppCompatActivity {
             frazeIndex = savedInstanceState.getInt(INDEX, 0);
         }
 
+        //poruka korisniku kako se može kretati kroz fraze
+        Toast.makeText(FrazeActivity.this, "Swype left or right", Toast.LENGTH_SHORT).show();
 
         int kategorijaID = getIntent().getIntExtra("kategorijaID", 0);
         String imeKategorije = baza.getKategorijabyID(kategorijaID).getNaziv_en();
