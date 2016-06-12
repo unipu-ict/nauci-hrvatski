@@ -12,7 +12,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.activity_quiz);
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(getResources().getString(R.string.quiz_caption));
 
@@ -34,5 +34,11 @@ public class QuizActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activities[randN]);
         intent.putExtra("kategorijaID", kategorijaID);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        finish();
     }
 }

@@ -4,7 +4,9 @@ package hr.unipu.polyling;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,10 +17,15 @@ import hr.unipu.polyling.util.Fraza;
 public class quizChoiceActivity extends AppCompatActivity {
     private Baza baza;
     private int kategorijaID;
+    private TextView currentQuestionN;
     private TextView question;
     private RadioButton choice1;
     private RadioButton choice2;
     private RadioButton choice3;
+    private RadioGroup radioGroup;
+    private String[] correctFraza;
+    private int correctAnswers = 0;
+    private int numberOfQuestions = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +38,39 @@ public class quizChoiceActivity extends AppCompatActivity {
         choice1 = (RadioButton) findViewById(R.id.choice1);
         choice2 = (RadioButton) findViewById(R.id.choice2);
         choice3 = (RadioButton) findViewById(R.id.choice3);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
         setRandomQuestion();
+        updateCurrentQuestionNumber();
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = (RadioButton) group.findViewById(checkedId);
+                String text = radioButton.getText().toString();
+                if (correctFraza[1].compareTo(text) == 0) {
+                    Toast.makeText(quizChoiceActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    correctAnswers++;
+                }
+                else
+                    Toast.makeText(quizChoiceActivity.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+
+                radioButton.setChecked(false);
+
+                if (numberOfQuestions > 4) {
+                    Toast.makeText(quizChoiceActivity.this, "Number of correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                setRandomQuestion();
+                updateCurrentQuestionNumber();
+            }
+        });
+    }
+
+    private void updateCurrentQuestionNumber() {
+        currentQuestionN = (TextView) findViewById(R.id.questionCounter);
+        currentQuestionN.setText(numberOfQuestions + " / 5");
     }
 
     private String[] getRandomLanguage(Fraza fraza, boolean randomOrder) {
@@ -56,6 +94,7 @@ public class quizChoiceActivity extends AppCompatActivity {
         Random random = new Random();
         int randQuestion = random.nextInt(cloneFraze.size());
         boolean randomOrder = random.nextBoolean();
+        numberOfQuestions++;
 
         Fraza q1 = cloneFraze.get(randQuestion);
         cloneFraze.remove(q1);
@@ -72,6 +111,7 @@ public class quizChoiceActivity extends AppCompatActivity {
         String[] pitanje2 = getRandomLanguage(q2, randomOrder);
         String[] pitanje3 = getRandomLanguage(q3, randomOrder);
 
+        correctFraza = pitanje1;
         randQuestion = random.nextInt(fraze.size());
 
         switch (randQuestion + 1) {
