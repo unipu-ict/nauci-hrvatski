@@ -41,13 +41,21 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".QuizActivity" />
+        <activity
+            android:name=".QuizActivity"
+            android:parentActivityName=".KategorijeActivity"/>
         <activity
             android:name=".TranslateActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".quizChoiceActivity" />
-        <activity android:name=".quizListenActivity" />
-        <activity android:name=".quizWriteActivity"></activity>
+        <activity
+            android:name=".quizChoiceActivity"
+            android:parentActivityName=".KategorijeActivity" />
+        <activity
+            android:name=".quizListenActivity"
+            android:parentActivityName=".KategorijeActivity" />
+        <activity
+            android:name=".quizWriteActivity"
+            android:parentActivityName=".KategorijeActivity" />
     </application>
 
 </manifest>

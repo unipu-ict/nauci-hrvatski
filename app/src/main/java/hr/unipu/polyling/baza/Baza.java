@@ -124,7 +124,7 @@ public class Baza {
 
     public List<Fraza> getRandomFraze(int kategorijaId) {
         List<Fraza> fraze;
-        String sql = "SELECT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId + " ORDER BY RANDOM() LIMIT 3";
+        String sql = "SELECT DISTINCT * FROM " + BazaOpenHelper.TABLE_FRAZE + " WHERE " + BazaOpenHelper.FRAZE_KATEGORIJA_ID + " = " + kategorijaId + " ORDER BY RANDOM() LIMIT 3";
 
         fraze = sqlFrazeList(sql);
 
