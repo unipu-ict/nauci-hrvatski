@@ -33,7 +33,7 @@
         android:textColor="#3333cc"
         android:textSize="30sp"
         android:gravity="center"
-        android:id="@+id/queston" />
+        android:id="@+id/question" />
 
     <ScrollView
         android:layout_width="wrap_content"
