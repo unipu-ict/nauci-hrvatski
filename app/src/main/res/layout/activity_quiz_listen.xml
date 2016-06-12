@@ -39,38 +39,53 @@
         android:paddingTop="50dp"
         android:orientation="vertical">
 
-        <RadioButton
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:id="@+id/choice1"
-            android:background="#cef0ff"
-            android:layout_gravity="start" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/radioGroup">
 
-        <RadioButton
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:id="@+id/choice2"
-            android:background="#cef0ff"
-            android:layout_gravity="start" />
+                <RadioButton
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/choice1"
+                    android:background="#cef0ff"
+                    android:layout_gravity="start" />
 
-        <RadioButton
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:id="@+id/choice3"
-            android:buttonTint="#3333cc"
-            android:background="#cef0ff"
-            android:gravity="center"
-            android:layout_gravity="center_vertical" />
+                <RadioButton
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/choice2"
+                    android:background="#cef0ff"
+                    android:layout_gravity="start" />
 
-
-    </LinearLayout>
+                <RadioButton
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/choice3"
+                    android:buttonTint="#3333cc"
+                    android:background="#cef0ff"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical" />
+            </RadioGroup>
+        </LinearLayout>
     </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:id="@+id/questionCounter"
+            android:gravity="center"
+            android:paddingTop="150dp"/>
+    </RelativeLayout>
 </LinearLayout>

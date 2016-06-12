@@ -90,29 +90,28 @@ public class quizChoiceActivity extends AppCompatActivity {
 
     private void setRandomQuestion() {
         ArrayList<Fraza> fraze = (ArrayList<Fraza>) baza.getRandomFraze(kategorijaID);
-        ArrayList<Fraza> cloneFraze = (ArrayList<Fraza>) fraze.clone();
         Random random = new Random();
-        int randQuestion = random.nextInt(cloneFraze.size());
+        int randQuestion = random.nextInt(fraze.size());
+        int rand = random.nextInt(fraze.size());
         boolean randomOrder = random.nextBoolean();
         numberOfQuestions++;
 
-        Fraza q1 = cloneFraze.get(randQuestion);
-        cloneFraze.remove(q1);
+        Fraza q1 = fraze.get(rand);
+        fraze.remove(q1);
 
-        randQuestion = random.nextInt(cloneFraze.size());
-        Fraza q2 = cloneFraze.get(randQuestion);
-        cloneFraze.remove(q2);
+        rand = random.nextInt(fraze.size());
+        Fraza q2 = fraze.get(rand);
+        fraze.remove(q2);
 
-        randQuestion = random.nextInt(cloneFraze.size());
-        Fraza q3 = cloneFraze.get(randQuestion);
-        cloneFraze.remove(q3);
+        rand = random.nextInt(fraze.size());
+        Fraza q3 = fraze.get(rand);
+        fraze.remove(q3);
 
         String[] pitanje1 = getRandomLanguage(q1, randomOrder);
         String[] pitanje2 = getRandomLanguage(q2, randomOrder);
         String[] pitanje3 = getRandomLanguage(q3, randomOrder);
 
         correctFraza = pitanje1;
-        randQuestion = random.nextInt(fraze.size());
 
         switch (randQuestion + 1) {
             case 1:
