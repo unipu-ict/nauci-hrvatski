@@ -97,9 +97,9 @@ public class PunjenjeBaze extends AsyncTask<Baza,Integer,Void>{
         dodajFrazeWrapper("Two", "Dva", baza.getKategorijaIdByNaziv("Time"));
         dodajFrazeWrapper("Three", "Tri", baza.getKategorijaIdByNaziv("Time"));
         dodajFrazeWrapper("Half past …", "Pola sata nakon …", baza.getKategorijaIdByNaziv("Time"));
-        dodajFrazeWrapper("One", "Jedan i pol", baza.getKategorijaIdByNaziv("Time"));
-        dodajFrazeWrapper("Two", "Dva i pol", baza.getKategorijaIdByNaziv("Time"));
-        dodajFrazeWrapper("Three", "Tri i pol", baza.getKategorijaIdByNaziv("Time"));
+        dodajFrazeWrapper("Half past one", "Jedan i pol", baza.getKategorijaIdByNaziv("Time"));
+        dodajFrazeWrapper("Half past two", "Dva i pol", baza.getKategorijaIdByNaziv("Time"));
+        dodajFrazeWrapper("Half past three", "Tri i pol", baza.getKategorijaIdByNaziv("Time"));
         dodajFrazeWrapper("Five past one", "Jedan i pet", baza.getKategorijaIdByNaziv("Time"));
         dodajFrazeWrapper("Ten past one", "Jedan i deset", baza.getKategorijaIdByNaziv("Time"));
         dodajFrazeWrapper("Twenty past one", "Jedan i dvadeset", baza.getKategorijaIdByNaziv("Time"));
@@ -148,9 +148,7 @@ public class PunjenjeBaze extends AsyncTask<Baza,Integer,Void>{
         dodajFrazeWrapper("I'm looking for …", "Tražim …", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("This address", "Ovu adresu", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("Are we on the right road for …?", "Jesmo li na ispravnoj cesti prema …?", baza.getKategorijaIdByNaziv("Directions"));
-        dodajFrazeWrapper("Pula", "Puli", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("Is this the right way for …?", "Da li je ovo ispravan put prema …?", baza.getKategorijaIdByNaziv("Directions"));
-        dodajFrazeWrapper("Zagreb", "Zagrebu", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("Do you have a map?", "Imaš li mapu?", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("Can you show me on the map?", "Možeš mi pokazati na mapi?", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("How far is it?", "Koliko je udaljeno?", baza.getKategorijaIdByNaziv("Directions"));
@@ -166,7 +164,7 @@ public class PunjenjeBaze extends AsyncTask<Baza,Integer,Void>{
         dodajFrazeWrapper("Quite a long way", "Je prilično daleko", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("A long way on foot", "Je prilično daleko pješice", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("A long way to walk", "Je dugačak put za hodanje", baza.getKategorijaIdByNaziv("Directions"));
-        dodajFrazeWrapper("About a mile from here", "Je otprilike milju odavde (jedna milja je otprilike 1.6 kilometara)", baza.getKategorijaIdByNaziv("Directions"));
+        dodajFrazeWrapper("About a mile from here", "Je otprilike milju odavde", baza.getKategorijaIdByNaziv("Directions"));
         dodajFrazeWrapper("Do you have any snacks?", "Imate li kakve grickalice?", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("Do you have any sandwiches?", "Imate li kakve sendviče?", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("Do you serve food?", "Poslužujete li hranu?", baza.getKategorijaIdByNaziv("Food"));
@@ -194,10 +192,8 @@ public class PunjenjeBaze extends AsyncTask<Baza,Integer,Void>{
         dodajFrazeWrapper("Six slices of ham", "Šest kriški šunke", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("Some olives", "Malo maslina", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("How much would you like?", "Koliko biste željeli?", baza.getKategorijaIdByNaziv("Food"));
-        dodajFrazeWrapper("300 grams", "300 grama", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("Half a kilo", "Pola kile", baza.getKategorijaIdByNaziv("Food"));
         dodajFrazeWrapper("Two pounds", "Dvije funte ", baza.getKategorijaIdByNaziv("Food"));
-        dodajFrazeWrapper("OK", "OK", baza.getKategorijaIdByNaziv("Basic"));
         dodajFrazeWrapper("Of course", "Naravno", baza.getKategorijaIdByNaziv("Basic"));
         dodajFrazeWrapper("Of course not", "Naravno da ne", baza.getKategorijaIdByNaziv("Basic"));
         dodajFrazeWrapper("That's fine", "U redu je", baza.getKategorijaIdByNaziv("Basic"));
