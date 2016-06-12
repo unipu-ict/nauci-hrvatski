@@ -33,7 +33,7 @@
         android:textColor="#3333cc"
         android:textSize="30sp"
         android:gravity="center"
-        android:id="@+id/queston" />
+        android:id="@+id/question" />
 
 
     <EditText
@@ -45,7 +45,7 @@
         android:hint="Your text here"
         android:background="#cef0ff"
         android:layout_gravity="center"
-        android:id="@+id/editText" />
+        android:id="@+id/upisanTekst" />
 
 
 
