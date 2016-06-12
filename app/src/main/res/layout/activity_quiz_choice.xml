@@ -7,6 +7,68 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="hr.unipu.polyling.quizChoiceActivity">
+    android:textColor="#3333cc"
+    android:orientation="vertical"
+    tools:context="hr.unipu.polyling.quizChoiceActivity"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose right answer:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#3333cc"
+        android:textSize="30sp"
+        android:paddingBottom="30dp"
+        android:id="@+id/opis" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#3333cc"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:id="@+id/queston" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice1"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice2"
+            android:background="#cef0ff"
+            android:layout_gravity="start" />
+
+        <RadioButton
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/choice3"
+            android:buttonTint="#3333cc"
+            android:background="#cef0ff"
+            android:gravity="center"
+            android:layout_gravity="center_vertical" />
+
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
