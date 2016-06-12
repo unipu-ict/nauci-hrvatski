@@ -1,6 +1,7 @@
 
 package hr.unipu.polyling;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
@@ -58,8 +59,11 @@ public class quizChoiceActivity extends AppCompatActivity {
                 radioButton.setChecked(false);
 
                 if (numberOfQuestions > 4) {
-                    Toast.makeText(quizChoiceActivity.this, "Number of correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
-                    finish();
+//                    Toast.makeText(quizChoiceActivity.this, "Number of correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
+//                    finish();
+                    Intent intent = new Intent(quizChoiceActivity.this, rezultatiActivity.class);
+                    intent.putExtra("brojTocnih", correctAnswers);
+                    startActivity(intent);
                 }
 
                 setRandomQuestion();
