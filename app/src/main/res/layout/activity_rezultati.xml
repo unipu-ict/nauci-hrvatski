@@ -9,6 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="hr.unipu.polyling.rezultatiActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="320dp"
@@ -55,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="5"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textColor="#de1e35"
         android:id="@+id/brojTocnih"
         />
@@ -65,7 +72,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text=" questions."
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="#3333cc"
             android:id="@+id/tekst2"
             />
@@ -82,7 +89,7 @@
         >
 
     <Button
-        android:onClick="otvoriPocetnu"
+        android:onClick="otvoriQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quiz"
@@ -95,7 +102,7 @@
         android:layout_marginRight="@dimen/activity_vertical_margin"/>
 
         <Button
-            android:onClick="otvoriQuiz"
+            android:onClick="otvoriPocetnu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Home"
@@ -109,4 +116,6 @@
     </LinearLayout>
 
 
+    </LinearLayout>
+</ScrollView>
 </LinearLayout>

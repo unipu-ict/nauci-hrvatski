@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:id="@+id/choice1"
+                    android:buttonTint="#3333cc"
                     android:background="#cef0ff"
                     android:layout_gravity="start" />
 
@@ -60,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:id="@+id/choice2"
+                    android:buttonTint="#3333cc"
                     android:background="#cef0ff"
                     android:layout_gravity="start" />
 
