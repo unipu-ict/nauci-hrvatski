@@ -4,8 +4,6 @@ import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
 
 import java.util.List;
 
@@ -34,7 +32,7 @@ public class SearchActivity extends ListActivity {
     }
 
     private void pretrazi(String query) {
-        fraze = baza.searchFraze(query);
+        fraze = baza.searchFraze(query.trim());
         setListAdapter(new FrazeArrayAdapter(this, R.layout.fraza_item, fraze));
     }
 
