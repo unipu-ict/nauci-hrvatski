@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Choose question type:  "
+        android:text="Choose a question type:  "
         android:textSize="25dp"
         android:layout_gravity="center"
         android:textColor="#3333cc"
@@ -35,12 +35,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hearing multiple choice"
+            android:text="Listening multiple choice"
             android:background="#a0d1f7"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
+            android:onClick="otvoriListen"
             android:id="@+id/multipleChoiceHearing" />
 
         <Button
@@ -49,7 +50,8 @@
             android:text="Reading multiple choice"
             android:background="#a0d1f7"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:onClick="otvoriChoice"
             android:layout_marginTop="30dp"
            android:layout_gravity="center"
             android:id="@+id/multipleChoiceReading" />
