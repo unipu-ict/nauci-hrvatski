@@ -33,11 +33,6 @@ public class QuizActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activities[randN]);
         intent.putExtra("kategorijaID", kategorijaID);
         startActivity(intent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         finish();
     }
 }

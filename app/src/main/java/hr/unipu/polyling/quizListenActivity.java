@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public class quizListenActivity extends AppCompatActivity {
 
     private Baza baza;
     private int kategorijaID;
-    private TextView currentQuestionN;
     private RadioButton choice1;
     private RadioButton choice2;
     private RadioButton choice3;
@@ -68,11 +66,11 @@ public class quizListenActivity extends AppCompatActivity {
                 RadioButton radioButton = (RadioButton) group.findViewById(checkedId);
                 String text = radioButton.getText().toString();
                 if (correctFraza.getNaziv_en().compareTo(text) == 0) {
-                    Toast.makeText(quizListenActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(quizListenActivity.this, "Correct! " + numberOfQuestions + " / 5", Toast.LENGTH_SHORT).show();
                     correctAnswers++;
                 }
                 else
-                    Toast.makeText(quizListenActivity.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(quizListenActivity.this, "Incorrect! " + numberOfQuestions + " / 5", Toast.LENGTH_SHORT).show();
 
                 radioButton.setChecked(false);
 
@@ -83,12 +81,10 @@ public class quizListenActivity extends AppCompatActivity {
                 }
 
                 setRandomQuestion();
-                updateCurrentQuestionNumber();
             }
         });
 
         setRandomQuestion();
-        updateCurrentQuestionNumber();
     }
 
     private void setRandomQuestion() {
@@ -130,16 +126,17 @@ public class quizListenActivity extends AppCompatActivity {
         }
     }
 
-    private void updateCurrentQuestionNumber() {
-        currentQuestionN = (TextView) findViewById(R.id.questionCounter);
-        currentQuestionN.setText(numberOfQuestions + " / 5");
-    }
-
     private void izgovori() {
 
             if (!spiker.isSpeaking()) {
                 String tekst = correctFraza.getNaziv_hr();
                 spiker.speak(tekst, TextToSpeech.QUEUE_FLUSH, null);
             }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }

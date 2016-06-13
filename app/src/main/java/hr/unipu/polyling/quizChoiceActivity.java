@@ -18,7 +18,6 @@ import hr.unipu.polyling.util.Fraza;
 public class quizChoiceActivity extends AppCompatActivity {
     private Baza baza;
     private int kategorijaID;
-    private TextView currentQuestionN;
     private TextView question;
     private RadioButton choice1;
     private RadioButton choice2;
@@ -42,7 +41,6 @@ public class quizChoiceActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
         setRandomQuestion();
-        updateCurrentQuestionNumber();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -50,11 +48,11 @@ public class quizChoiceActivity extends AppCompatActivity {
                 RadioButton radioButton = (RadioButton) group.findViewById(checkedId);
                 String text = radioButton.getText().toString();
                 if (correctFraza[1].compareTo(text) == 0) {
-                    Toast.makeText(quizChoiceActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(quizChoiceActivity.this, "Correct! " + numberOfQuestions + " / 5", Toast.LENGTH_SHORT).show();
                     correctAnswers++;
                 }
                 else
-                    Toast.makeText(quizChoiceActivity.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(quizChoiceActivity.this, "Incorrect! " + numberOfQuestions + " / 5", Toast.LENGTH_SHORT).show();
 
                 radioButton.setChecked(false);
 
@@ -65,14 +63,8 @@ public class quizChoiceActivity extends AppCompatActivity {
                 }
 
                 setRandomQuestion();
-                updateCurrentQuestionNumber();
             }
         });
-    }
-
-    private void updateCurrentQuestionNumber() {
-        currentQuestionN = (TextView) findViewById(R.id.questionCounter);
-        currentQuestionN.setText(numberOfQuestions + " / 5");
     }
 
     private String[] getRandomLanguage(Fraza fraza, boolean randomOrder) {
@@ -135,5 +127,11 @@ public class quizChoiceActivity extends AppCompatActivity {
                 choice1.setText(pitanje3[1]);
                 break;
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
