@@ -20,7 +20,7 @@ public class rezultatiActivity extends AppCompatActivity {
                      break;
                  case 1: poruka="Bad!";
                     break;
-                 case 2: poruka="Not so good!";
+                 case 2: poruka="Not good!";
                      break;
                  case 3: poruka="Good job!";
                      break;
